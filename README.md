@@ -1,2 +1,2 @@
-# React Project Starter
+# React Clock Out Calculator
 
