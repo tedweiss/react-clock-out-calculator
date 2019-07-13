@@ -1,11 +1,9 @@
 import React from 'react'
 
+import ClockOutChoices from './components/ClockOutChoices'
+
 const App = () => {
-  return (
-    <div className='App'>
-      To get started, edit <code>src/App.jsx</code> and save to reload.
-    </div>
-  )
+  return <ClockOutChoices />
 }
 
 export default App
