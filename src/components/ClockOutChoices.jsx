@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import EndOfDay from './EndOfDay'
+import EndOfWeek from './EndOfWeek'
 
 const ClockOutChoices = () => {
   const [screen, setScreen] = useState(0)
@@ -18,9 +19,16 @@ const ClockOutChoices = () => {
             }}>
             End of Day
           </button>
+          <button
+            onClick={() => {
+              updateScreen(2)
+            }}>
+            End of Week
+          </button>
         </>
       )}
       {screen === 1 && <EndOfDay updateScreen={updateScreen} />}
+      {screen === 2 && <EndOfWeek updateScreen={updateScreen} />}
     </>
   )
 }
