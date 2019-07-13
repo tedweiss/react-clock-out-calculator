@@ -25,8 +25,11 @@ const EndOfDay = () => {
       setDisplayTime(false)
     }
   }
+  const handleChange = e => {
+    setLunchTime(e.target.value)
+  }
   const handleClick = () => {
-    let time = calculateClockOutTime(hours, minutes)
+    let time = calculateClockOutTime(hours, minutes, lunchTime)
     setClockOutTime({
       hours: time.hours,
       minutes: time.minutes,
@@ -38,6 +41,7 @@ const EndOfDay = () => {
   return (
     <>
       <input type={'time'} onBlur={handleBlur} onChange={handleInputChange} />
+      <input type={'number'} onChange={handleChange} />
       <button onClick={handleClick}>Find Clock Out Time</button>
       {displayTime && (
         <div>
