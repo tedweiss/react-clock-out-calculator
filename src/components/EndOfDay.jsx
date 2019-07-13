@@ -40,7 +40,9 @@ const EndOfDay = () => {
 
   return (
     <>
+      <label>Clock In Time:</label>
       <input type={'time'} onBlur={handleBlur} onChange={handleInputChange} />
+      <label>Minutes for Lunch</label>
       <input type={'number'} onChange={handleChange} />
       <button onClick={handleClick}>Find Clock Out Time</button>
       {displayTime && (
