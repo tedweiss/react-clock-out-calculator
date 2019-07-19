@@ -64,6 +64,10 @@ export const handleMinutes = (lunchMinutes, startMinutes, minutesSoFar, minutesI
     minutes = 60 + minutes
     hour = -1
   }
+  // add "0" in front of minutes if less than 10 for display
+  if (minutes < 10) {
+    minutes = '0' + minutes
+  }
   return { hour, minutes }
 }
 
