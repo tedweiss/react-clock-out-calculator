@@ -24,10 +24,17 @@ const ClockOutChoices = () => {
             }}>
             End of Week
           </button>
+          <button
+            onClick={() => {
+              updateScreen(3)
+            }}>
+            End of Two Weeks
+          </button>
         </>
       )}
       {screen === 1 && <ClockOutSelection updateScreen={updateScreen} screen={screen} />}
       {screen === 2 && <ClockOutSelection updateScreen={updateScreen} screen={screen} endOfWeek />}
+      {screen === 3 && <ClockOutSelection updateScreen={updateScreen} screen={screen} endOf2Weeks />}
     </>
   )
 }

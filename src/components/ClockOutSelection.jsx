@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { calculateClockOutTime } from '../utils'
 
 const ClockOutSelection = props => {
-  const { endOfWeek } = props
+  const { endOfWeek, endOf2Weeks } = props
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [displayTime, setDisplayTime] = useState(false)
@@ -28,7 +28,7 @@ const ClockOutSelection = props => {
     }
   }
   const handleClick = () => {
-    let daysSoFar = endOfWeek ? 4 : 0
+    let daysSoFar = endOfWeek ? 4 : endOf2Weeks ? 9 : 0
     let time = calculateClockOutTime(hours, minutes, lunchTime, timeSoFar, daysSoFar)
     setClockOutTime({
       hours: time.hours,
@@ -40,7 +40,7 @@ const ClockOutSelection = props => {
 
   return (
     <>
-      {endOfWeek && (
+      {(endOfWeek || endOf2Weeks) && (
         <>
           <label>Total Time so Far:</label>
           <input
