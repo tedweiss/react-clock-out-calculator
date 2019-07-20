@@ -3,12 +3,13 @@ import React, { useState } from 'react'
 import { calculateClockOutTime } from '../utils'
 
 const ClockOutSelection = props => {
-  const { endOfWeek, endOf2Weeks } = props
+  const { endOfWeek, endOf2Weeks, getOnTrack } = props
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [displayTime, setDisplayTime] = useState(false)
   const [lunchTime, setLunchTime] = useState(0)
   const [timeSoFar, setTimeSoFar] = useState()
+  const [daysSoFar, setDaysSoFar] = useState(endOfWeek ? 4 : endOf2Weeks ? 9 : 0)
   const [clockOutTime, setClockOutTime] = useState()
 
   const handleBlur = e => {
@@ -28,7 +29,6 @@ const ClockOutSelection = props => {
     }
   }
   const handleClick = () => {
-    let daysSoFar = endOfWeek ? 4 : endOf2Weeks ? 9 : 0
     let time = calculateClockOutTime(hours, minutes, lunchTime, timeSoFar, daysSoFar)
     setClockOutTime({
       hours: time.hours,
@@ -40,13 +40,24 @@ const ClockOutSelection = props => {
 
   return (
     <>
-      {(endOfWeek || endOf2Weeks) && (
+      {(endOfWeek || endOf2Weeks || getOnTrack) && (
         <>
           <label>Total Time so Far:</label>
           <input
             type={'number'}
             onChange={e => {
               setTimeSoFar(e.target.value)
+            }}
+          />
+        </>
+      )}
+      {getOnTrack && (
+        <>
+          <label>Work Days so Far:</label>
+          <input
+            type={'number'}
+            onChange={e => {
+              setDaysSoFar(e.target.value)
             }}
           />
         </>
