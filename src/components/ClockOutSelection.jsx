@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import Button from './Button'
 import { calculateClockOutTime } from '../utils'
 
 const ClockOutSelection = props => {
@@ -71,7 +72,7 @@ const ClockOutSelection = props => {
           setLunchTime(e.target.value)
         }}
       />
-      <button onClick={handleClick}>Find Clock Out Time</button>
+      <Button handleClick={handleClick} text={'Find Clock Out Time'} />
       {displayTime && (
         <div>
           {clockOutTime.hours}:{clockOutTime.minutes} {clockOutTime.amPm}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import ClockOutSelection from './ClockOutSelection'
+import Button from './Button'
 
 const ClockOutChoices = () => {
   const [screen, setScreen] = useState(0)
@@ -12,30 +13,30 @@ const ClockOutChoices = () => {
       {screen === 0 && (
         <>
           <div>What time to clock out?</div>
-          <button
-            onClick={() => {
+          <Button
+            handleClick={() => {
               updateScreen(1)
-            }}>
-            End of Day
-          </button>
-          <button
-            onClick={() => {
+            }}
+            text={'End of Day'}
+          />
+          <Button
+            handleClick={() => {
               updateScreen(2)
-            }}>
-            End of Week
-          </button>
-          <button
-            onClick={() => {
+            }}
+            text={'End of Week'}
+          />
+          <Button
+            handleClick={() => {
               updateScreen(3)
-            }}>
-            End of Two Weeks
-          </button>
-          <button
-            onClick={() => {
+            }}
+            text={'End of Two Weeks'}
+          />
+          <Button
+            handleClick={() => {
               updateScreen(4)
-            }}>
-            Get on Track
-          </button>
+            }}
+            text={'Get on Track'}
+          />
         </>
       )}
       {screen === 1 && <ClockOutSelection updateScreen={updateScreen} />}
