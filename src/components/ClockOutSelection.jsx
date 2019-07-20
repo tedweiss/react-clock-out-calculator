@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 
 import { calculateClockOutTime } from '../utils'
 
-const EndOfDay = () => {
+const ClockOutSelection = props => {
+  const { endOfWeek } = props
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [displayTime, setDisplayTime] = useState(false)
@@ -27,7 +28,8 @@ const EndOfDay = () => {
     }
   }
   const handleClick = () => {
-    let time = calculateClockOutTime(hours, minutes, lunchTime, timeSoFar, 4)
+    let daysSoFar = endOfWeek ? 4 : 0
+    let time = calculateClockOutTime(hours, minutes, lunchTime, timeSoFar, daysSoFar)
     setClockOutTime({
       hours: time.hours,
       minutes: time.minutes,
@@ -38,13 +40,17 @@ const EndOfDay = () => {
 
   return (
     <>
-      <label>Total Time so Far:</label>
-      <input
-        type={'number'}
-        onChange={e => {
-          setTimeSoFar(e.target.value)
-        }}
-      />
+      {endOfWeek && (
+        <>
+          <label>Total Time so Far:</label>
+          <input
+            type={'number'}
+            onChange={e => {
+              setTimeSoFar(e.target.value)
+            }}
+          />
+        </>
+      )}
       <label>Clock In Time:</label>
       <input type={'time'} onBlur={handleBlur} onChange={handleInputChange} />
       <label>Minutes for Lunch</label>
@@ -64,4 +70,4 @@ const EndOfDay = () => {
   )
 }
 
-export default EndOfDay
+export default ClockOutSelection
