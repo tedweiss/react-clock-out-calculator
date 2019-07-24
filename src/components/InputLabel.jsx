@@ -1,11 +1,11 @@
 import React from 'react'
 
 const InputLabel = props => {
-  const { label, onChange, type } = props
+  const { label, onBlur, onChange, type } = props
   return (
     <div>
       <label>{label}</label>
-      <input type={type} onChange={onChange} />
+      <input type={type} onBlur={onBlur} onChange={onChange} />
     </div>
   )
 }

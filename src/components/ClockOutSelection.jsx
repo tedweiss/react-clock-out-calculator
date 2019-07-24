@@ -44,36 +44,12 @@ const ClockOutSelection = props => {
     <>
       {(endOfWeek || endOf2Weeks || getOnTrack) && (
         <InputLabel label={'Total Time so Far:'} type={'number'} onChange={e => setTimeSoFar(e.target.value)} />
-        // <>
-        //   <label>Total Time so Far:</label>
-        //   <input
-        //     type={'number'}
-        //     onChange={e => {
-        //       setTimeSoFar(e.target.value)
-        //     }}
-        //   />
-        // </>
       )}
       {getOnTrack && (
-        <>
-          <label>Work Days so Far:</label>
-          <input
-            type={'number'}
-            onChange={e => {
-              setDaysSoFar(e.target.value)
-            }}
-          />
-        </>
+        <InputLabel label={'Work Days so Far:'} type={'number'} onChange={e => setDaysSoFar(e.target.value)} />
       )}
-      <label>Clock In Time:</label>
-      <input type={'time'} onBlur={handleBlur} onChange={handleInputChange} />
-      <label>Minutes for Lunch</label>
-      <input
-        type={'number'}
-        onChange={e => {
-          setLunchTime(e.target.value)
-        }}
-      />
+      <InputLabel label={'Clock In Time:'} type={'time'} onBlur={handleBlur} onChange={handleInputChange} />
+      <InputLabel label={'Minutes for Lunch:'} type={'number'} onChange={e => setLunchTime(e.target.value)} />
       <Button handleClick={handleClick} text={'Find Clock Out Time'} />
       {displayTime && (
         <div>
