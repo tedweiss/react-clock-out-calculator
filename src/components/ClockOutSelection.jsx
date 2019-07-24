@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import Button from './Button'
 import { calculateClockOutTime } from '../utils'
+import InputLabel from './InputLabel'
 
 const ClockOutSelection = props => {
   const { endOfWeek, endOf2Weeks, getOnTrack } = props
@@ -42,15 +43,16 @@ const ClockOutSelection = props => {
   return (
     <>
       {(endOfWeek || endOf2Weeks || getOnTrack) && (
-        <>
-          <label>Total Time so Far:</label>
-          <input
-            type={'number'}
-            onChange={e => {
-              setTimeSoFar(e.target.value)
-            }}
-          />
-        </>
+        <InputLabel label={'Total Time so Far:'} type={'number'} onChange={e => setTimeSoFar(e.target.value)} />
+        // <>
+        //   <label>Total Time so Far:</label>
+        //   <input
+        //     type={'number'}
+        //     onChange={e => {
+        //       setTimeSoFar(e.target.value)
+        //     }}
+        //   />
+        // </>
       )}
       {getOnTrack && (
         <>
