@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 
 import Button from './Button'
-import { calculateClockOutTime } from '../utils'
 import InputLabel from './InputLabel'
+import { calculateClockOutTime } from '../utils'
+
+const DisplayedTime = styled.p`
+  margin: 30px 0;
+`
 
 const ClockOutSelection = props => {
   const { endOfWeek, endOf2Weeks, getOnTrack } = props
@@ -52,9 +57,9 @@ const ClockOutSelection = props => {
       <InputLabel label={'Minutes for Lunch:'} type={'number'} onChange={e => setLunchTime(e.target.value)} />
       <Button handleClick={handleClick} text={'Find Clock Out Time'} />
       {displayTime && (
-        <div>
+        <DisplayedTime>
           {clockOutTime.hours}:{clockOutTime.minutes} {clockOutTime.amPm}
-        </div>
+        </DisplayedTime>
       )}
     </>
   )
