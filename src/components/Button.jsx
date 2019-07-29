@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
+  width: 100%;
   padding: 15px;
-  margin: 25px 30px 0;
+  margin-top: 25px;
   background-color: blue;
   border-radius: 10px;
   border-width: 1px;
