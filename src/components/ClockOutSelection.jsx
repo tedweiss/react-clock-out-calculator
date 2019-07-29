@@ -5,12 +5,16 @@ import Button from './Button'
 import InputLabel from './InputLabel'
 import { calculateClockOutTime } from '../utils'
 
+const Back = styled.p`
+  cursor: pointer;
+  text-align: left;
+`
 const DisplayedTime = styled.p`
   margin: 30px 0;
 `
 
 const ClockOutSelection = props => {
-  const { endOfWeek, endOf2Weeks, getOnTrack } = props
+  const { endOfWeek, endOf2Weeks, getOnTrack, updateScreen } = props
   const [hours, setHours] = useState(0)
   const [minutes, setMinutes] = useState(0)
   const [displayTime, setDisplayTime] = useState(false)
@@ -47,6 +51,7 @@ const ClockOutSelection = props => {
 
   return (
     <>
+      <Back onClick={() => updateScreen(0)}>{'<'} Back</Back>
       {(endOfWeek || endOf2Weeks || getOnTrack) && (
         <InputLabel label={'Total Time so Far:'} type={'number'} onChange={e => setTimeSoFar(e.target.value)} />
       )}

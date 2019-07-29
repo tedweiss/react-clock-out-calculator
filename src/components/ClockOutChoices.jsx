@@ -22,30 +22,10 @@ const ClockOutChoices = () => {
       {screen === 0 && (
         <>
           <div>What time to clock out?</div>
-          <Button
-            handleClick={() => {
-              updateScreen(1)
-            }}
-            text={'End of Day'}
-          />
-          <Button
-            handleClick={() => {
-              updateScreen(2)
-            }}
-            text={'End of Week'}
-          />
-          <Button
-            handleClick={() => {
-              updateScreen(3)
-            }}
-            text={'End of Two Weeks'}
-          />
-          <Button
-            handleClick={() => {
-              updateScreen(4)
-            }}
-            text={'Get on Track'}
-          />
+          <Button handleClick={() => updateScreen(1)} text={'End of Day'} />
+          <Button handleClick={() => updateScreen(2)} text={'End of Week'} />
+          <Button handleClick={() => updateScreen(3)} text={'End of Two Weeks'} />
+          <Button handleClick={() => updateScreen(4)} text={'Get on Track'} />
         </>
       )}
       {screen === 1 && <ClockOutSelection updateScreen={updateScreen} />}
